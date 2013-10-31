@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<todo version="0.1.20">
+    <note priority="medium" time="1383210629">
+        Add rake task for doc
+    </note>
+    <note priority="medium" time="1383210667">
+        Generate GEM package
+        <note priority="medium" time="1383210637">
+            Add rake task for gem generation
+        </note>
+        <note priority="medium" time="1383210644">
+            Add gemspec
+        </note>
+    </note>
+</todo>
