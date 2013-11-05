@@ -1,4 +1,23 @@
-.bundle
+# VCS
 .svn
+
+# Ruby artifacts
+*.gem
+*.rbc
+.bundle
+.config
+coverage
+InstalledFiles
+lib/bundler/man
+pkg
+rdoc
+spec/reports
+test/tmp
+test/version_tmp
+tmp
 vendor/bundle
-doc
+
+# YARD artifacts
+.yardoc
+_yardoc
+doc/
