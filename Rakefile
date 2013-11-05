@@ -2,7 +2,8 @@
 
 require 'rake'
 require 'rake/testtask'
-#require 'tasks/rails'
+require 'rspec/core/rake_task'
+
 begin
 	require 'bundler/setup'
 rescue LoadError
@@ -16,7 +17,8 @@ rescue LoadError
 	RDoc::Task = Rake::RDocTask
 end
 
-#task :default => [:test]
+task :default => [:spec]
+
 Rake::TaskManager.record_task_metadata = true
 task :default do
 	Rake::application.options.show_tasks = :tasks  # this solves sidewaysmilk problem
@@ -36,4 +38,11 @@ Rake::RDocTask.new do |rdoc|
 end
 
 #Bundler::GemHelper.install_tasks
+
+
+RSpec::Core::RakeTask.new(:spec) do |t|
+	pp t.pattern
+	#t.pattern = "test/**/*.rb"
+	t.fail_on_error = false
+end
 
