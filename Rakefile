@@ -9,6 +9,7 @@ begin
 rescue LoadError
 	puts 'You must `gem install bundler` and `bundle install` to run rake tasks'
 end
+
 begin
 	require 'rdoc/task'
 rescue LoadError
@@ -17,9 +18,10 @@ rescue LoadError
 	RDoc::Task = Rake::RDocTask
 end
 
-task :default => [:spec]
+#task :default => [:spec]
 
 Rake::TaskManager.record_task_metadata = true
+
 task :default do
 	Rake::application.options.show_tasks = :tasks  # this solves sidewaysmilk problem
 	Rake::application.options.show_task_pattern = //
@@ -41,8 +43,9 @@ end
 
 
 RSpec::Core::RakeTask.new(:spec) do |t|
-	pp t.pattern
 	#t.pattern = "test/**/*.rb"
+	t.rspec_opts ||= []
+	t.rspec_opts << '--color'
 	t.fail_on_error = false
 end
 
