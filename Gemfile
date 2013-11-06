@@ -11,3 +11,13 @@ gem "factory_girl"
 gem "database_cleaner"
 gem "shoulda"
 
+# Score tools
+gem "whois"
+
+# Database support
+gem "activerecord"
+gem "sqlite3"
+
+# Command line
+gem "thor"
+

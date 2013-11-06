@@ -1,4 +1,4 @@
-class Brandscore
+module Brandscore
 	# List available Brandscore plugins
 	#
 	#   Factory.plugins
@@ -28,6 +28,10 @@ class Brandscore
 		end
 	end
 
+	# A tester is a object for testing multiple brands
+	# with various plugins.
+	#
+	# Simply enable plugins, load the names, run the test !
 	class Tester
 		# Create a tester with given plugins
 		#
@@ -50,5 +54,5 @@ class Brandscore
 		end
 	end
 
-	
+
 end
