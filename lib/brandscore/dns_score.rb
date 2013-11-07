@@ -1,27 +1,15 @@
-#!/usr/bin/env ruby
 
-require 'rubygems'
-require 'bundler/setup'
 require 'whois'
-require 'logger'
-
 require 'resolv'
 
-require 'active_record'
+module Brandscore
+	class DnsScore < GenericScore
+		def self.match? pattern
+			pattern =~ /^dns$/
+		end
 
-ActiveRecord::Base.establish_connection(
-	:adapter  => 'sqlite3',
-	:database => 'dns.db'
-)
-ActiveRecord::Base.logger = Logger.new(STDERR)
-#ActiveRecord::Base.logger = Logger.new( "debug.log" )
-ActiveRecord::Migrator.up('db/migrate') 
+		def initialize hash
 
-require 'db/model'
-
-module BrandScore
-	class DnsScore
-		def initialize
 			@tlds = {
 				"com" => 7, 
 				"net" => 7, 
@@ -113,6 +101,6 @@ module BrandScore
 	end
 end
 
-dt = DnsTester.new
-dt.run
+#dt = DnsTester.new
+#dt.run
 

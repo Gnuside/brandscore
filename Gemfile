@@ -20,4 +20,5 @@ gem "sqlite3"
 
 # Command line
 gem "thor"
-
+gem "pry"
+gem "rb-readline"
